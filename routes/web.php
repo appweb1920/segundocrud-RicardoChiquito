@@ -22,3 +22,8 @@ Route::get('/datos', 'PiezasController@agregaPiezas');
 Route::post('/envio', 'PiezasController@ListaDatos');
 
 Route::get('/muestraDatos', 'PiezasController@muestraDatos');
+
+Route::get('/editar/{id}', 'PiezasController@muestraEdicion');
+
+Route::post('/editar/guardaEdicion', 'PiezasController@guardaEdicion');
+

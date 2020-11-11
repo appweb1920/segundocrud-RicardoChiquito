@@ -30,8 +30,27 @@ class PiezasController extends Controller
         $nuevaPieza->Costo = $request->Costo;
         $nuevaPieza->save();
 
-        //return view('muestraDatos')->with('Piezas',$Pieza);
         return  redirect('/muestraDatos');
+    }
+
+    public function muestraEdicion($id)
+    {
+        $nuevaPieza = Piezas::find($id);
+        return view('edicionDatos')->with('Piezas',$nuevaPieza);
+    }
+
+    public function guardaEdicion(Request $request)
+    {
+        $nuevaPieza = Piezas::find($request->id);
+        if(!is_null($nuevaPieza))
+        {
+            $nuevaPieza->Nombre = $request->Nombre;
+            $nuevaPieza->Descripcion = $request->Descripcion;
+            $nuevaPieza->NumeroPiezas = $request->NumeroPiezas;
+            $nuevaPieza->Costo = $request->Costo;
+            $nuevaPieza->save();
+        }
+        return redirect('/muestraDatos');
     }
 
     public function index()

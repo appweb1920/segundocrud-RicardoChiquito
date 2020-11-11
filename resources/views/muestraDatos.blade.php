@@ -17,6 +17,7 @@
                 <th>Numero de Piezas</th>
                 <th>Costo</th>
                 <th>Edicion de Pieza</th>
+                <th>Eliminacion</th>
             </tr>  
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                 <td>{{$Pieza->NumeroPiezas}}</td>
                 <td>{{$Pieza->Costo}}</td> 
                 <td><a href="/editar/{{$Pieza->id}}">Editar</a></td>
+                <td><a href="/eliminar/{{$Pieza->id}}">Elminar</a></td>
             </tr> 
             @endforeach
         </tbody>
