@@ -3,17 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Piezas;
 
 class PiezasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function agregaPiezas()
+    {
+        $Pieza = Piezas::all();
+        return view('CreacionPiezas')->with('Piezas',$Pieza);
+    }
+
+    public function muestraDatos()
+    {
+        $Pieza = Piezas::all();
+        return view('muestraDatos')->with('Piezas',$Pieza);
+        
+    }
+
+    public function ListaDatos(Request $request)
+    {
+        $Pieza = Piezas::all();
+        $nuevaPieza = new Piezas;
+        $nuevaPieza->Nombre = $request->Nombre;
+        $nuevaPieza->Descripcion = $request->Descripcion;
+        $nuevaPieza->NumeroPiezas = $request->NumeroPiezas;
+        $nuevaPieza->Costo = $request->Costo;
+        $nuevaPieza->save();
+
+        //return view('muestraDatos')->with('Piezas',$Pieza);
+        return  redirect('/muestraDatos');
+    }
+
     public function index()
     {
-        //
+        $Piezas = Piezas::all();
+        return ($Piezas);
     }
 
     /**

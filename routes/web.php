@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/datos', 'PiezasController@agregaPiezas');
+
+Route::post('/envio', 'PiezasController@ListaDatos');
+
+Route::get('/muestraDatos', 'PiezasController@muestraDatos');

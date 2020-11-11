@@ -17,7 +17,7 @@ class Piezas extends Migration
             $table->id();
             $table->string('Nombre');
             $table->string('Descripcion');
-            $table->string('Numero de Piezas');
+            $table->string('NumeroPiezas');
             $table->string('Costo');
             $table->rememberToken();
             $table->timestamps();
