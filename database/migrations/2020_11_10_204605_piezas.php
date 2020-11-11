@@ -16,7 +16,7 @@ class Piezas extends Migration
         Schema::create('Piezas', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre');
-            $table->string('Descripcion')
+            $table->string('Descripcion');
             $table->string('Numero de Piezas');
             $table->string('Costo');
             $table->rememberToken();
@@ -31,6 +31,6 @@ class Piezas extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Piezas');
     }
 }
