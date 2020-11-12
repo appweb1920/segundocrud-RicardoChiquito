@@ -122,6 +122,8 @@ class PiezasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Pieza = Piezas::find($id);
+        $Pieza->delete();
+        return redirect('/muestraDatos');
     }
 }
